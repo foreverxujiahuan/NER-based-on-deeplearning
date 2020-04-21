@@ -2,7 +2,7 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 15:27:58
 @LastEditors: xujiahuan
-@LastEditTime: 2020-04-21 18:49:53
+@LastEditTime: 2020-04-21 20:33:56
 '''
 
 
@@ -16,8 +16,10 @@ class Metrics:
         for t in pred:
             if t in golden:
                 TP = TP + 1
-        self.precision = TP/len(pred_tag_lists)
-        self.recall = TP/len(golden_tag_lists)
+        self.precision = TP/len(pred)
+        self.recall = TP/len(golden)
+        print("P %.4f" % self.precision)
+        print("P %4f" % self.recall)
         self.f1 = 2*(self.precision*self.recall)/(self.precision+self.recall)
 
     def get_precision(self):

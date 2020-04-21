@@ -2,7 +2,7 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 12:37:36
 @LastEditors: xujiahuan
-@LastEditTime: 2020-04-21 18:53:33
+@LastEditTime: 2020-04-21 21:15:32
 '''
 from data import build_corpus
 from models.hmm import HMM
@@ -16,6 +16,7 @@ train_word_lists, train_tag_lists, word2id, tag2id = \
         build_corpus(train_path)
 dev_word_lists, dev_tag_lists = build_corpus(dev_path, make_vocab=False)
 test_word_lists, test_tag_lists = build_corpus(test_path, make_vocab=False)
+print(tag2id)
 
 
 def hmm_pred(train_word_lists, train_tag_lists, test_word_lists,
