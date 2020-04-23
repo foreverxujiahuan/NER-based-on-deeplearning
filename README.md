@@ -2,7 +2,7 @@
  * @Autor: xujiahuan
  * @Date: 2020-03-07 22:22:52
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-04-22 15:27:10
+ * @LastEditTime: 2020-04-23 01:36:52
  -->
 # 数据集
 MSRA公开数据集
@@ -18,4 +18,9 @@ MSRA公开数据集
 
 # 各算法f1得分
 HMM:0.5096
+
 CRF:0.8569
+
+BiLSTM:0.7251
+
+BiLSMT+CRF:0.7458
