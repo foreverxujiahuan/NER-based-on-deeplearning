@@ -2,7 +2,7 @@
  * @Autor: xujiahuan
  * @Date: 2020-03-07 22:22:52
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-04-23 15:25:58
+ * @LastEditTime: 2020-05-04 21:38:31
  -->
 ## 数据集
 MSRA公开数据集
@@ -41,6 +41,8 @@ BERT:
 HMM:0.5096
 
 CRF:0.8569
+
+RNN:0.5518
 
 BiLSTM:0.7251
 
