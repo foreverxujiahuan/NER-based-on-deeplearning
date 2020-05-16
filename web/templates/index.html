@@ -2,138 +2,161 @@
  * @Autor: xujiahuan
  * @Date: 2020-05-11 21:09:11
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-05-14 13:54:45
+ * @LastEditTime: 2020-05-16 23:06:49
  -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中文命名实体识别平台</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中文命名实体识别平台</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-    <div id="app">
-        <h1 class="ner_title">{{ msg }}</h1>
-        <textarea class="left_text" placeholder="请输入待识别文字"></textarea>
-        <button @click="submit" class="s_button">分析</button>
-        <div class="right_text">
-        <div class="model">
-            <button title="bert模型" @click="BERT" :class="bert_activate?'activate':'common'">BERT</button>
-            <button title="HMM模型" @click="HMM" :class="hmm_activatte?'activate':'common'">HMM</button>
-            <button title="CRF模型" @click="CRF" :class="crf_activate?'activate':'common'">CRF</button>
-            <button title="双向LSTM+CRF模型" @click="LSTM" :class="lstm_activate?'activate':'common'">LSTM-CRF</button>
-        </div>
-        <p>{{ ner_res}}</p>
-        </div>
-    </div>
-    <script type="text/javascript">
-        var app = new Vue({
-            el:'#app',
-            methods:{
-                submit:function(){
-                    alert("分析");
-                },
-                BERT:function(){
-                    this.model = "BERT";
-                    this.bert_activate = true;
-                    this.hmm_activatte = false;
-                    this.crf_activate = false;
-                    this.lstm_activate = false;
-                },
-                HMM:function(){
-                    this.model = "HMM";
-                    this.bert_activate = false;
-                    this.hmm_activatte = true;
-                    this.crf_activate = false;
-                    this.lstm_activate = false;
-                },
-                CRF:function(){
-                    this.model = "CRF";
-                    this.bert_activate = false;
-                    this.hmm_activatte = false;
-                    this.crf_activate = true;
-                    this.lstm_activate = false;
-                },
-                LSTM:function(){
-                    this.model = "LSTM";
-                    this.bert_activate = false;
-                    this.hmm_activatte = false;
-                    this.crf_activate = false;
-                    this.lstm_activate = true;
-                }
-            },
-            data:{
-                msg: '中文命名实体识别平台',
-                ner_res: 'hello world',
-                model: 'BERT',
-                bert_activate:true,
-                hmm_activatte:false,
-                crf_activate:false,
-                lstm_activate:false
-            }
-        })
-    </script>
-<style scoped>
-    .ner_title{
-        text-align: center;
-        font: 700 60px "Comic Sans MS";
-        color: white;
-        margin-bottom: 0px;
-        text-shadow: 0 0 20px #fdec84,
-            10px -10px 30px #ffae35,
-            20px -20px 40px #ec760c,
-            -20px -60px 50px #cd4607,
-            0px -80px 60px #973717,
-            10px -40px 70px #451b0e;
+  <div id="app">
+    <h1 class="ner_title">中文命名实体识别平台</h1>
+    <form action="/" method="POST">
+      <textarea class="left_text" placeholder="请输入待识别文字" name="text"></textarea>
+      <select class="model_select" name="model">
+        <option value="bert">BERT</option>
+        <option value="hmm">HMM</option>
+        <option value="crf">CRF</option>
+        <option value="lstm">LSTM-CRF</option>
+      </select>
+      <br />
+      <button @click="submit" class="s_button">分析</button>
+    </form>
+  </div>
+
+  <div class="right_text">
+    <p>原文:{{ text }}</p>
+    <p>识别结果:{{ pred }}</p>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: "中文命名实体识别平台",
+        ner_res: 'hello world',
+        model: 'BERT',
+        ner: 'ner',
+        bert_activate: true,
+        hmm_activatte: false,
+        crf_activate: false,
+        lstm_activate: false
+      },
+      methods: {
+        submit: function () {
+
+        },
+        BERT: function () {
+          this.model = "BERT";
+          this.bert_activate = true;
+          this.hmm_activatte = false;
+          this.crf_activate = false;
+          this.lstm_activate = false;
+        },
+        HMM: function () {
+          this.model = "HMM";
+          this.bert_activate = false;
+          this.hmm_activatte = true;
+          this.crf_activate = false;
+          this.lstm_activate = false;
+        },
+        CRF: function () {
+          this.model = "CRF";
+          this.bert_activate = false;
+          this.hmm_activatte = false;
+          this.crf_activate = true;
+          this.lstm_activate = false;
+        },
+        LSTM: function () {
+          this.model = "LSTM";
+          this.bert_activate = false;
+          this.hmm_activatte = false;
+          this.crf_activate = false;
+          this.lstm_activate = true;
+        }
+      }
+    })
+  </script>
+  <style scoped>
+    button {
+      width: 150px;
+      height: 40px;
     }
+
+    .ner_title {
+      text-align: center;
+      font: 700 60px "Comic Sans MS";
+      color: white;
+      margin-bottom: 0px;
+      text-shadow: 0 0 20px #fdec84,
+        10px -10px 30px #ffae35,
+        20px -20px 40px #ec760c,
+        -20px -60px 50px #cd4607,
+        0px -80px 60px #973717,
+        10px -40px 70px #451b0e;
+    }
+
     .model {
-      height:80px;
+      height: 80px;
       width: 100%;
     }
-    .common{
+
+    .model_select {
+      float: left;
+      margin-top: 50px;
+      margin-left: 35px;
+      position: absolute;
+
+    }
+
+    .common {
       margin-top: 10px;
       margin-left: 10px;
       padding: 10px 20px;
       background: gray;
       cursor: pointer;
     }
-    .activate{
-      margin-top: 10px;
-      margin-left: 10px;
-      padding: 10px 20px;
-      background: palevioletred;
-      cursor: pointer;
-    }
+
     .s_button {
-        float: left;
-        margin-left: 50px;
-        margin-top: 120px;
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
+      float: left;
+      margin-left: 5px;
+      margin-top: 200px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      /* padding: 15px 32px; */
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    h1, h2 {
+
+    h1,
+    h2 {
       font-weight: normal;
     }
+
     ul {
       list-style-type: none;
       padding: 0;
     }
+
     li {
       display: inline-block;
       margin: 0 10px;
     }
+
     a {
       color: #42b983;
     }
-    .left_text{
+
+    .left_text {
       float: left;
       margin-left: 296px;
       margin-top: 20px;
@@ -142,23 +165,26 @@
       border-radius: 5px;
       height: 400px;
       width: 350px;
-      border:2px solid red;
+      border: 2px solid red;
     }
-    .right_text{
-      float: left;
+
+    .right_text {
+      position: relative;
       height: 415px;
       width: 400px;
       float: left;
-      margin-top: 20px;
-      margin-left: 50px;
-      border:2px solid red;
+      margin-top: 0px;
+      margin-left: 20px;
+      border: 2px solid red;
       border-radius: 5px;
     }
-    .right_text p{
+
+    .right_text p {
       float: left;
       margin-left: 10px;
-      margin-top: 15px;
+      margin-top: 25px;
     }
-    </style>
+  </style>
 </body>
+
 </html>

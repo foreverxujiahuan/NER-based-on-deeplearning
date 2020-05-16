@@ -2,7 +2,7 @@
  * @Autor: xujiahuan
  * @Date: 2020-03-07 22:22:52
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-05-04 21:38:31
+ * @LastEditTime: 2020-05-16 23:08:37
  -->
 ## 数据集
 MSRA公开数据集
@@ -30,6 +30,10 @@ BiLSTM_CRF:
 BERT:
 
 `python Bert.py`
+
+wei启动方式:
+`cd web`
+`python main.py`
 
 ## 开发部分
 采用flask+vue搭建web可视化界面

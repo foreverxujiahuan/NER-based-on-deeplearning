@@ -2,11 +2,12 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 20:12:02
 @LastEditors: xujiahuan
-@LastEditTime: 2020-04-21 20:19:10
+@LastEditTime: 2020-05-14 16:03:48
 '''
 from data import build_corpus
 from models.crf import CRFModel
 from metrics import Metrics
+from utils import save_model
 
 # 制作数据
 # 制作数据
@@ -22,6 +23,8 @@ def crf_pred(train_word_lists, train_tag_lists, test_word_lists,
              test_tag_lists):
     model = CRFModel()
     model.train(train_word_lists, train_tag_lists)
+    save_model(model, "./ckpts/crf.pkl")
+    print(test_word_lists)
     pred = model.test(test_word_lists)
     return pred
 
