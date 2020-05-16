@@ -2,7 +2,7 @@
  * @Autor: xujiahuan
  * @Date: 2020-03-07 22:22:52
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-05-16 23:08:37
+ * @LastEditTime: 2020-05-16 23:13:57
  -->
 ## 数据集
 MSRA公开数据集
@@ -31,8 +31,10 @@ BERT:
 
 `python Bert.py`
 
-wei启动方式:
+web启动方式:
+
 `cd web`
+
 `python main.py`
 
 ## 开发部分
