@@ -2,7 +2,7 @@
  * @Autor: xujiahuan
  * @Date: 2020-05-11 21:09:11
  * @LastEditors: xujiahuan
- * @LastEditTime: 2020-05-16 23:19:48
+ * @LastEditTime: 2020-05-17 16:56:10
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +20,11 @@
       <textarea class="left_text" placeholder="请输入待识别文字" name="text"></textarea>
       <select class="model_select" name="model">
         <option value="bert">BERT</option>
+        <option value="rnn">RNN</option>
         <option value="hmm">HMM</option>
         <option value="crf">CRF</option>
-        <option value="lstm">LSTM-CRF</option>
+        <option value="lstm">LSTM</option>
+        <!-- <option value="lstm_crf">LSTM-CRF</option> -->
       </select>
       <br />
       <button @click="submit" class="s_button">分析</button>

@@ -2,7 +2,7 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 20:57:09
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-04 16:29:14
+@LastEditTime: 2020-05-16 23:52:17
 '''
 # 设置lstm训练参数
 
@@ -11,7 +11,7 @@ class TrainingConfig(object):
     batch_size = 32
     # 学习速率
     lr = 0.001
-    epoches = 1
+    epoches = 30
     print_step = 5
 
 
