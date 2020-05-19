@@ -2,12 +2,14 @@
 @Autor: xujiahuan
 @Date: 2020-05-12 21:41:12
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-17 15:44:28
+@LastEditTime: 2020-05-19 22:19:48
 '''
 from flask import Flask, render_template, request
 from sklearn.externals import joblib
 import json
 from utils import extend_maps
+import sys
+sys.path.append("..")
 
 
 app = Flask(__name__)

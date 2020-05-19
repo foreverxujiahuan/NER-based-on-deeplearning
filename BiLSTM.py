@@ -2,8 +2,9 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 20:41:13
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-17 15:40:51
+@LastEditTime: 2020-05-19 19:39:05
 '''
+
 from data import build_corpus
 from models.bilstm_crf import BILSTM_Model
 from metrics import Metrics

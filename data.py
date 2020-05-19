@@ -2,11 +2,12 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 12:47:21
 @LastEditors: xujiahuan
-@LastEditTime: 2020-04-21 12:55:16
+@LastEditTime: 2020-05-19 19:42:04
 '''
 from os.path import join
 from codecs import open
 from collections import Counter
+
 
 def build_corpus(path, make_vocab=True):
     """读取数据"""

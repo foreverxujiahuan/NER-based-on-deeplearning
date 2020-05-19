@@ -2,14 +2,13 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 20:12:02
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-14 16:03:48
+@LastEditTime: 2020-05-19 19:55:44
 '''
 from data import build_corpus
 from models.crf import CRFModel
 from metrics import Metrics
 from utils import save_model
 
-# 制作数据
 # 制作数据
 train_path = 'data/train.txt'
 dev_path = 'data/dev.txt'
@@ -36,4 +35,4 @@ print("训练完毕...")
 print("正在评估CRF...")
 metrics = Metrics(crf_pred, test_tag_lists)
 f1 = metrics.get_f1()
-print("HMM的f1得分为%.4f" % f1)
+print("CRF的f1得分为%.4f" % f1)
