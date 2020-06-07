@@ -2,14 +2,13 @@
 @Autor: xujiahuan
 @Date: 2020-04-22 16:13:48
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-17 15:54:59
+@LastEditTime: 2020-05-19 22:26:44
 '''
 from data import build_corpus
 from models.bilstm_crf import BILSTM_Model
 from metrics import Metrics
 from utils import extend_maps, save_model
 import time
-from sklearn.externals import joblib
 
 # 制作数据
 train_path = 'data/train.txt'
@@ -42,6 +41,6 @@ def bilstm_pred(train_word_lists, train_tag_lists, dev_word_lists,
 
 bilstm_pred = bilstm_pred(train_word_lists, train_tag_lists, dev_word_lists,
                           dev_tag_lists, test_word_lists, test_tag_lists)
-# metrics = Metrics(bilstm_pred, test_tag_lists)
-# f1 = metrics.get_f1()
-# print("BiLSTM+CRF的f1得分为%.4f" % f1)
+metrics = Metrics(bilstm_pred, test_tag_lists)
+f1 = metrics.get_f1()
+print("BiLSTM+CRF的f1得分为%.4f" % f1)

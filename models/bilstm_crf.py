@@ -1,10 +1,8 @@
 from itertools import zip_longest
 from copy import deepcopy
-
 import torch
 import torch.nn as nn
 import torch.optim as optim
-
 from .util import tensorized, sort_by_lengths, cal_loss, cal_lstm_crf_loss
 from .config import TrainingConfig, LSTMConfig
 from .bilstm import BiLSTM

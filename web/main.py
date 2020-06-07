@@ -2,13 +2,14 @@
 @Autor: xujiahuan
 @Date: 2020-05-12 21:41:12
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-19 22:19:48
+@LastEditTime: 2020-06-03 17:25:59
 '''
 from flask import Flask, render_template, request
 from sklearn.externals import joblib
 import json
 from utils import extend_maps
 import sys
+import requests
 sys.path.append("..")
 
 
@@ -20,7 +21,7 @@ def index():
     text = request.form.get("text")
     model = request.form.get("model")
     pred = ner(text, model)
-    if len(pred) != 0:
+    if len(pred) != 0 and model != 'bert':
         pred = pred[0]
     return render_template("index.html", pred=pred, text=text)
 
@@ -37,7 +38,17 @@ def ner(text, model):
         pred = lstm(text)
     if model == 'lstm_crf':
         pred = lstm_crf(text)
+    if model == 'bert':
+        pred = bert(text)
     return pred
+
+
+def bert(text):
+    url_params = {'s': text}
+    r = requests.post('http://127.0.0.1:6000', params=url_params)
+    res = r.json()
+    res = res[:-1]
+    return res
 
 
 def lstm_crf(text):
@@ -63,7 +74,7 @@ def lstm_crf(text):
 
 
 def lstm(text):
-    path = "../ckpts/lstm.pkl"
+    path = "ckpts/lstm.pkl"
     model = joblib.load(path)
     test_tag_lists = []
     length = len(text)
@@ -85,7 +96,7 @@ def lstm(text):
 
 
 def rnn(text):
-    path = "../ckpts/rnn.pkl"
+    path = "ckpts/rnn.pkl"
     model = joblib.load(path)
     test_tag_lists = []
     length = len(text)

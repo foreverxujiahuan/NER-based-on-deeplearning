@@ -2,7 +2,7 @@
 @Autor: xujiahuan
 @Date: 2020-04-21 20:41:13
 @LastEditors: xujiahuan
-@LastEditTime: 2020-05-19 19:39:05
+@LastEditTime: 2020-05-19 22:26:51
 '''
 
 from data import build_corpus
@@ -11,7 +11,6 @@ from metrics import Metrics
 from utils import extend_maps
 from utils import save_model
 import time
-from sklearn.externals import joblib
 
 # 制作数据
 train_path = 'data/train.txt'

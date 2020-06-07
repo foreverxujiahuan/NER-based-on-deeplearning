@@ -28,7 +28,7 @@ class Metrics:
     def get_recall(self):
         return self.recall
 
-    def get_f1(self):
+    def aget_f1(self):
         return self.f1
 
     def change_data(self, lists):
